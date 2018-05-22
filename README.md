@@ -8,5 +8,5 @@ docker build -t parcelservice-database .
 
 ## create docker container
 ```sh
-docker run -d -p 3306:3306 --name=db parcelservice-database
+docker run -d -p 3306:3306 --network=ParcelService --name=db parcelservice-database
 ```
