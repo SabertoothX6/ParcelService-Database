@@ -25,7 +25,7 @@ node {
       }
 
    }
-   stage('Deploy to Asset-Server')
+   stage('Deploy Image to Asset-Server')
    {
       sh "docker save parcelservice-database > database.tar"
       sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no database.tar vagrant@192.168.50.100:/home/vagrant/images"
