@@ -21,9 +21,14 @@ node {
       }
       else
       {
-          //TODO other than unix 
+          //TODO other than unix
       }
 
+   }
+   stage('Deploy to Asset-Server')
+   {
+      sh "docker save parcelservice-database > database.tar"
+      sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no database.tar vagrant@192.168.50.100:/home/vagrant/images"
    }
    /*stage('Run ParcelService-Server')
    {//TODO Befehl ändern
