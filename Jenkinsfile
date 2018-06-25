@@ -17,7 +17,7 @@ node {
               sh "docker rmi -f parcelservice-database"
           }
           //Build new container with image parcelservice-database
-          sh "docker build -t parcelservice-database ."
+          sh "docker build -t parcelservice-database:test ."
       }
       else
       {
