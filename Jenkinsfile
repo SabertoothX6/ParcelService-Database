@@ -27,7 +27,7 @@ node {
    }
    stage('Deploy Image to Asset-Server')
    {
-      sh "docker push asset.allgaeu-parcel-service.de:5000/parcelservice-database:${currentBuild.number} ."
+      sh "docker push asset.allgaeu-parcel-service.de:5000/parcelservice-database:${currentBuild.number}"
       //sh "docker save parcelservice-database:${currentBuild.number} > database.${currentBuild.number}.tar"
       //sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no database.${currentBuild.number}.tar vagrant@192.168.56.100:/home/vagrant/images"
    }
