@@ -17,7 +17,7 @@ node {
               sh "docker rmi -f parcelservice-database"
           }
           //Build new container with image parcelservice-database
-          sh "docker build -t parcelservice-database:test ."
+          sh "docker build -t parcelservice-database:${currentBuild.number} ."
       }
       else
       {
@@ -27,7 +27,7 @@ node {
    }
    stage('Deploy Image to Asset-Server')
    {
-      sh "docker save parcelservice-database > database.tar"
+      sh "docker save parcelservice-database:${currentBuild.number} > database${currentBuild.number}.tar"
       sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no database.tar vagrant@192.168.56.100:/home/vagrant/images"
    }
    /*stage('Run ParcelService-Server')
