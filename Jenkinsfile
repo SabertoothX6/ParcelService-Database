@@ -17,7 +17,7 @@ node {
               sh "docker rmi -f parcelservice-database"
           }
           //Build new container with image parcelservice-database
-          sh "docker build -t parcelservice-database:${currentBuild.number} ."
+          sh "docker build -t asset.allgaeu-parcel-service.de:5000/parcelservice-database:${currentBuild.number} ."
       }
       else
       {
@@ -27,8 +27,9 @@ node {
    }
    stage('Deploy Image to Asset-Server')
    {
-      sh "docker save parcelservice-database:${currentBuild.number} > database.${currentBuild.number}.tar"
-      sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no database.${currentBuild.number}.tar vagrant@192.168.56.100:/home/vagrant/images"
+      sh "docker push asset.allgaeu-parcel-service.de:5000/parcelservice-database:${currentBuild.number} ."
+      //sh "docker save parcelservice-database:${currentBuild.number} > database.${currentBuild.number}.tar"
+      //sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no database.${currentBuild.number}.tar vagrant@192.168.56.100:/home/vagrant/images"
    }
    /*stage('Run ParcelService-Server')
    {//TODO Befehl ändern
