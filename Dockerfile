@@ -6,6 +6,8 @@ COPY ./mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 COPY ./Parcel.sql /docker-entrypoint-initdb.d/
 
-RUN /etc/init.d/mysql start
-
 EXPOSE 3306
+
+ENTRYPOINT ["/etc/init.d/mysql","start"]
+
+
