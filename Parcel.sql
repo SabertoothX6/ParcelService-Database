@@ -15,8 +15,8 @@ LOCK TABLES `ParcelSize` WRITE;
 INSERT INTO `ParcelSize` VALUES (1,'XS',0,35),(2,'S',35,50),(3,'M',50,65),(4,'L',65,80),(5,'XL',80,300);
 UNLOCK TABLES;
 
-CREATE USER 'reader'@'localhost' IDENTIFIED BY 'penis';
-CREATE USER 'reader'@'%' IDENTIFIED BY 'penis';
+CREATE USER 'reader'@'localhost' IDENTIFIED BY 'Pen1s';
+CREATE USER 'reader'@'%' IDENTIFIED BY 'Pen1s';
 
 GRANT ALL ON *.* TO 'reader'@'localhost';
 GRANT ALL ON *.* TO 'reader'@'%';
